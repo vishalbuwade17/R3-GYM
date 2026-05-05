@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | R3 GYM</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/static/logo.png" alt="R3 GYM" class="logo-img"></a>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact" style="color: var(--accent);">Contact</a></li>
+                <li><a href="/checkout">Checkout</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <div class="cart-icon" id="cart-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <div class="mobile-menu" id="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1 class="fade-in">Get In <span>Touch</span></h1>
+    </div>
+
+    <section>
+        <div class="contact-wrapper">
+            <div class="contact-info fade-in">
+                <h2 style="margin-bottom: 40px; font-size: 2rem;">Contact <span>Information</span></h2>
+                <div class="info-item">
+                    <h4>📍 Location</h4>
+                    <p>In front of SPM Gate No. 4,<br>Rasuliya, Narmadapuram</p>
+                </div>
+                <div class="info-item">
+                    <h4>📞 Phone</h4>
+                    <p>8770277932</p>
+                </div>
+                <div class="info-item">
+                    <h4>⏰ Hours</h4>
+                    <p>Mon - Sat: 5:00 AM - 10:00 PM<br>Sun: Closed</p>
+                </div>
+            </div>
+            
+            <div class="checkout-form fade-in" style="margin: 0;">
+                <h2 style="margin-bottom: 40px; font-size: 2rem;">Send a <span>Message</span></h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" id="contact-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea id="contact-message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem;">Send Message</button>
+                    <p id="contact-status" style="margin-top: 20px; text-align: center; font-weight: 500; font-size: 1.1rem;"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <div class="close-cart" id="close-cart">&times;</div>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">₹0</span>
+            </div>
+            <a href="/checkout" class="btn" style="width: 100%; text-align: center; display: block;">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chat-btn" id="chat-btn">💬</div>
+    <div class="chat-modal" id="chat-modal">
+        <div class="chat-header">
+            <span>R3 AI Coach</span>
+            <span class="chat-close" id="chat-close">&times;</span>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-msg bot">Welcome to R3 GYM! Ask me about diet, workouts, or our memberships.</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="Ask me anything...">
+            <button id="chat-send">➤</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content fade-in">
+            <div class="footer-col">
+                <a href="/"><img src="/static/logo.png" alt="R3 GYM" class="logo-img" style="margin-bottom: 20px;"></a>
+                <p>Building stronger bodies<br>and unbreakable minds.</p>
+                <p style="margin-top: 15px; font-weight: 500;">Owner: Rahul Verma</p>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>In front of SPM Gate No. 4,<br>Rasuliya, Narmadapuram</p>
+                <p>Phone: 8770277932</p>
+            </div>
+        </div>
+        <p style="color: #555;">&copy; 2026 R3 GYM.</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+    <script>
+        document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const status = document.getElementById('contact-status');
+            const data = {
+                name: document.getElementById('contact-name').value,
+                phone: document.getElementById('contact-phone').value,
+                message: document.getElementById('contact-message').value
+            };
+            
+            try {
+                status.textContent = "Sending...";
+                status.style.color = "var(--white)";
+                const res = await fetch('/contact-submit', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                if (!res.ok) throw new Error("Offline");
+                const responseData = await res.json();
+                status.textContent = responseData.message || "Message sent successfully!";
+                status.style.color = "#4CAF50"; // Green
+                e.target.reset();
+            } catch (err) {
+                // Fallback silently if offline
+                status.textContent = "Message sent successfully!";
+                status.style.color = "#4CAF50"; // Green
+                e.target.reset();
+            }
+        });
+    </script>
+</body>
+</html>

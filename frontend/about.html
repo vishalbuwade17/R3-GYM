@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | R3 GYM</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/static/logo.png" alt="R3 GYM" class="logo-img"></a>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" style="color: var(--accent);">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/checkout">Checkout</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <div class="cart-icon" id="cart-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <div class="mobile-menu" id="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1 class="fade-in">Our <span>Philosophy</span></h1>
+    </div>
+
+    <section>
+        <div class="contact-wrapper">
+            <div class="fade-in" style="padding-top: 20px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">The R3 <span>Difference</span></h2>
+                <p style="margin-bottom: 25px; font-size: 1.15rem; color: #ccc;">At R3 GYM, we believe that fitness is not a destination, it is a way of life. Founded by <strong>Rahul Verma</strong>, our gym provides a premium training environment for individuals who are serious about their goals.</p>
+                <p style="font-size: 1.15rem; color: #ccc;">Our mission is to build unbreakable bodies and minds through disciplined training, expert coaching, and a supportive community. Located in the heart of Narmadapuram, we are here to guide you every step of the way.</p>
+            </div>
+            <div class="fade-in">
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1470&auto=format&fit=crop" alt="Gym Interior" style="width: 100%; border-radius: 12px; border: 1px solid var(--light-gray); box-shadow: 0 15px 30px rgba(0,0,0,0.5);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <div class="close-cart" id="close-cart">&times;</div>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">₹0</span>
+            </div>
+            <a href="/checkout" class="btn" style="width: 100%; text-align: center; display: block;">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chat-btn" id="chat-btn">💬</div>
+    <div class="chat-modal" id="chat-modal">
+        <div class="chat-header">
+            <span>R3 AI Coach</span>
+            <span class="chat-close" id="chat-close">&times;</span>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-msg bot">Welcome to R3 GYM! Ask me about diet, workouts, or our memberships.</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="Ask me anything...">
+            <button id="chat-send">➤</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content fade-in">
+            <div class="footer-col">
+                <a href="/"><img src="/static/logo.png" alt="R3 GYM" class="logo-img" style="margin-bottom: 20px;"></a>
+                <p>Building stronger bodies<br>and unbreakable minds.</p>
+                <p style="margin-top: 15px; font-weight: 500;">Owner: Rahul Verma</p>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>In front of SPM Gate No. 4,<br>Rasuliya, Narmadapuram</p>
+                <p>Phone: 8770277932</p>
+            </div>
+        </div>
+        <p style="color: #555;">&copy; 2026 R3 GYM.</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
